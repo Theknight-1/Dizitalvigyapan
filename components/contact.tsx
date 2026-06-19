@@ -280,6 +280,18 @@ export function Contact() {
             💬 Start WhatsApp Chat
           </a>
         </div>
+
+        <div className="mt-12 rounded-2xl overflow-hidden border border-border">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.6109632249595!2d79.46170278219249!3d28.36060023090061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a00734c6f1507d%3A0xea99ca9706741e82!2sDizital%20Vigyapan%20-%20Digital%20Marketing%20Agency%20in%20Bareilly%20%7C%20Graphics%20Designing!5e0!3m2!1sen!2sin!4v1781885044830!5m2!1sen!2sin"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
     </section>
   );

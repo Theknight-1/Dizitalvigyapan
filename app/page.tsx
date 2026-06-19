@@ -19,8 +19,8 @@ export default function Page() {
     <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Services />
       <About />
+      <Services />
       <Industries />
       <Process />
       <CaseStudies />

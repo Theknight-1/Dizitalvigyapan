@@ -146,7 +146,7 @@ export function About() {
 
           {/* Right side - Video/Image placeholder */}
           <div className="relative h-96 md:h-full flex items-center justify-center">
-            <div className="relative w-full max-w-full aspect-3/2 rounded-2xl overflow-hidden border-2 border-primary/30 glow-effect">
+            <div className="relative w-[80%]  rounded-2xl overflow-hidden border-2 border-primary/30 glow-effect">
               <img
                 src={`/digitalvigyapan.jpeg?v=${Date.now()}`}
                 alt="Pramod Diwakar"
@@ -155,9 +155,7 @@ export function About() {
               <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <h3 className="font-bold text-xl">Pramod Diwakar</h3>
-                <p className="text-sm text-foreground/80">
-                  Digital Marketing Consultant
-                </p>
+                <p className="text-sm text-foreground/80">Founder</p>
               </div>
             </div>
           </div>
