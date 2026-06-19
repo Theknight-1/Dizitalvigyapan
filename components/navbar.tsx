@@ -1,41 +1,48 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Menu, X, Phone, MessageCircle } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'Industries', href: '#industries' },
-    { label: 'Case Studies', href: '#case-studies' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Why Us', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ]
+    { label: "Services", href: "#services" },
+    { label: "Industries", href: "#industries" },
+    { label: "Case Studies", href: "#case-studies" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Why Us", href: "#about" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
-            </div>
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-white leading-none">Dizital</span>
-              <span className="text-xs text-primary font-semibold">विज्ञापन</span>
+              <Image
+                src="/logo.png"
+                alt="Dizital Vigyapan"
+                width={100}
+                height={30}
+              />
             </div>
           </div>
 
@@ -65,9 +72,19 @@ export function Navbar() {
               href="https://wa.me/918899316670"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-6 py-1 rounded-lg bg-[#25D366] text-primary-foreground hover:bg-[#128C7E] transition-colors text-sm font-medium"
             >
-              <MessageCircle size={16} />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                className="w-8 h-8"
+              >
+                <circle cx="16" cy="16" r="16" fill="#25D366" />
+                <path
+                  fill="#FFF"
+                  d="M24.3 8.3A10.9 10.9 0 0 0 6.5 21.4L5 27l5.8-1.5A10.9 10.9 0 1 0 24.3 8.3zm-8.3 16a9.1 9.1 0 0 1-4.7-1.3l-.3-.2-3.4.9.9-3.3-.2-.3A9.1 9.1 0 1 1 16 24.3zm5-6.8c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.5.1-.2.3-.7.9-.9 1.1-.1.1-.3.2-.5.1-1.5-.8-2.4-1.4-3.4-3.2-.1-.2 0-.3.1-.4.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2.1-.3 0-.5-.1-.1-.5-1.3-.8-1.8-.3-.5-.5-.4-.7-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"
+                />
+              </svg>
               WhatsApp
             </a>
           </div>
@@ -114,5 +131,5 @@ export function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }

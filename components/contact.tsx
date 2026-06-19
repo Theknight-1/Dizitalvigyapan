@@ -103,7 +103,11 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" ref={containerRef} className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card border-t border-border">
+    <section
+      id="contact"
+      ref={containerRef}
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card border-t border-border"
+    >
       <div className="max-w-5xl mx-auto">
         <div ref={titleRef} className="mb-16 text-center">
           <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-4">
@@ -113,13 +117,14 @@ export function Contact() {
             Let&apos;s Start Your Growth Journey
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-balance">
-            Ready to transform your digital presence? Contact us for a free consultation and let&apos;s discuss your goals.
+            Ready to transform your digital presence? Contact us for a free
+            consultation and let&apos;s discuss your goals.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {contactMethods.map((method, index) => {
-            const Icon = method.icon
+            const Icon = method.icon;
             return (
               <a
                 key={index}
@@ -129,15 +134,19 @@ export function Contact() {
                 <div className="w-14 h-14 rounded-lg bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Icon size={24} />
                 </div>
-                <h4 className="font-bold text-foreground mb-2">{method.title}</h4>
-                <p className="text-foreground/70 hover:text-primary transition-colors">{method.value}</p>
+                <h4 className="font-bold text-foreground mb-2">
+                  {method.title}
+                </h4>
+                <p className="text-foreground/70 hover:text-primary transition-colors">
+                  {method.value}
+                </p>
               </a>
-            )
+            );
           })}
         </div>
 
         {/* Contact Form */}
-        <div ref={formRef} className="p-8 md:p-12 rounded-2xl bg-background border border-border">
+        {/* <div ref={formRef} className="p-8 md:p-12 rounded-2xl bg-background border border-border">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -253,13 +262,14 @@ export function Contact() {
               We respect your privacy. No spam, unsubscribe anytime.
             </p>
           </form>
-        </div>
+        </div> */}
 
         {/* WhatsApp CTA */}
         <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-center">
           <h3 className="text-2xl font-bold mb-4">Prefer WhatsApp?</h3>
           <p className="text-foreground/70 mb-6">
-            Chat with us directly on WhatsApp for quick queries and instant responses.
+            Chat with us directly on WhatsApp for quick queries and instant
+            responses.
           </p>
           <a
             href="https://wa.me/918899316670"
@@ -272,5 +282,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

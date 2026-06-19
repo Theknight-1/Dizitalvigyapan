@@ -1,48 +1,146 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Search, TrendingUp, FileText, Users, Palette, BarChart3 } from 'lucide-react'
+import {  useLayoutEffect, useRef } from 'react'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
+import {
+  Search,
+  Users,
+  Megaphone,
+  Globe,
+  Bot,
+  Palette,
+  Star,
+  Settings,
+  Target,
+} from 'lucide-react'
 
-gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
-    icon: Search,
-    title: 'SEO Optimization',
-    description: 'Dominate search rankings with comprehensive SEO strategies that drive organic traffic and sustainable growth.',
-    features: ['Technical SEO Audit', 'Keyword Research & Strategy', 'On-Page Optimization', 'Link Building', 'Local SEO', 'Monthly Reporting'],
-  },
-  {
-    icon: TrendingUp,
-    title: 'Performance Marketing',
-    description: 'Data-driven campaigns focused on measurable ROI and conversion optimization across all channels.',
-    features: ['Conversion Rate Optimization', 'Funnel Analysis', 'A/B Testing', 'Budget Optimization', 'Attribution Modeling', 'Real-time Reporting'],
-  },
-  {
-    icon: FileText,
-    title: 'Ads Marketing',
-    description: 'Strategic paid advertising on Meta Ads and Google Ads platforms for maximum reach and conversions.',
-    features: ['Meta Ads Campaigns', 'Google Ads Management', 'Audience Targeting', 'Ad Creative Development', 'Remarketing', 'Campaign Analytics'],
-  },
-  {
     icon: Users,
     title: 'Social Media Marketing',
-    description: 'Build engaged communities and amplify your brand presence across all major social platforms.',
-    features: ['Social Media Strategy', 'Content Creation & Posting', 'Community Management', 'Social Listening', 'Influencer Outreach', 'Engagement Analytics'],
+    description:
+      'Build a powerful social presence that increases engagement, brand awareness, and customer loyalty.',
+    features: [
+      'Social Media Strategy',
+      'Content Creation',
+      'Community Management',
+      'Audience Growth',
+      'Monthly Content Calendar',
+      'Performance Reporting',
+    ],
+  },
+  {
+    icon: Target,
+    title: 'Lead Generation',
+    description:
+      'Generate high-quality leads through targeted campaigns designed to convert prospects into customers.',
+    features: [
+      'Lead Funnel Setup',
+      'Landing Pages',
+      'Audience Targeting',
+      'Lead Qualification',
+      'CRM Integration',
+      'Conversion Tracking',
+    ],
+  },
+  {
+    icon: Megaphone,
+    title: 'Ads Marketing',
+    description:
+      'Scale your business with high-converting Meta Ads and Google Ads campaigns.',
+    features: [
+      'Meta Ads Management',
+      'Google Ads Campaigns',
+      'Retargeting Campaigns',
+      'Creative Development',
+      'Audience Research',
+      'ROI Optimization',
+    ],
+  },
+  {
+    icon: Globe,
+    title: 'Website Design',
+    description:
+      'Modern, responsive websites built to attract visitors and convert them into customers.',
+    features: [
+      'Custom Website Design',
+      'Responsive Development',
+      'Landing Pages',
+      'Speed Optimization',
+      'Conversion-Focused UI/UX',
+      'Maintenance & Support',
+    ],
+  },
+  {
+    icon: Bot,
+    title: 'AI Content Creation',
+    description:
+      'Leverage AI-powered content production to create engaging, scalable content faster.',
+    features: [
+      'AI Copywriting',
+      'Blog Content',
+      'Social Media Content',
+      'Video Scripts',
+      'Marketing Content',
+      'Content Optimization',
+    ],
   },
   {
     icon: Palette,
-    title: 'Social Media Handle Setup',
-    description: 'Complete social media account setup, optimization, and management across 2-4 platforms.',
-    features: ['Account Creation & Setup', 'Profile Optimization', 'Brand Guidelines Implementation', 'Logo Design', 'Initial Content Creation', 'Platform-Specific Strategy'],
+    title: 'Branding',
+    description:
+      'Create a memorable brand identity that builds trust and stands out in the market.',
+    features: [
+      'Brand Strategy',
+      'Logo Design',
+      'Visual Identity',
+      'Brand Guidelines',
+      'Messaging Framework',
+      'Creative Assets',
+    ],
   },
   {
-    icon: BarChart3,
-    title: 'Email Marketing & Automation',
-    description: 'Nurture leads and drive conversions with targeted email campaigns and automated workflows.',
-    features: ['Email List Building', 'Campaign Design', 'Automation Sequences', 'A/B Testing', 'Segmentation', 'Performance Analytics'],
+    icon: Star,
+    title: 'Influencer Marketing',
+    description:
+      'Collaborate with the right influencers to expand reach and drive authentic engagement.',
+    features: [
+      'Influencer Discovery',
+      'Campaign Planning',
+      'Partnership Management',
+      'Content Collaboration',
+      'Performance Tracking',
+      'ROI Reporting',
+    ],
+  },
+  {
+    icon: Settings,
+    title: 'Social Media Handle Setup',
+    description:
+      'Professional setup and optimization of social media accounts across multiple platforms.',
+    features: [
+      'Account Creation',
+      'Profile Optimization',
+      'Brand Integration',
+      'Platform Configuration',
+      'Initial Content Setup',
+      'Growth Strategy',
+    ],
+  },
+  {
+    icon: Search,
+    title: 'SEO',
+    description:
+      'Improve visibility and rankings with a complete search engine optimization strategy.',
+    features: [
+      'Technical SEO',
+      'Keyword Research',
+      'On-Page SEO',
+      'Local SEO',
+      'Link Building',
+      'SEO Reporting',
+    ],
   },
 ]
 
@@ -91,7 +189,7 @@ export function Services() {
           </p>
         </div>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (

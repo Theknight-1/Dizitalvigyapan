@@ -127,7 +127,10 @@ export function CaseStudies() {
 }, [])
 
   return (
-    <section id="case-studies" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section
+      id="case-studies"
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card "
+    >
       <div className="max-w-7xl mx-auto">
         <div ref={titleRef} className="mb-16 text-center">
           <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-4">
@@ -137,7 +140,8 @@ export function CaseStudies() {
             Proven Results, Real Growth
           </h2>
           <p className="text-lg text-foreground/70 max-w-3xl mx-auto text-balance">
-            See how we&apos;ve transformed businesses across industries with data-driven strategies.
+            See how we&apos;ve transformed businesses across industries with
+            data-driven strategies.
           </p>
         </div>
 
@@ -148,9 +152,6 @@ export function CaseStudies() {
               data-case-study
               className="group relative p-8 rounded-2xl border border-border bg-background hover:border-primary/50 transition-all duration-300"
             >
-              {/* Background gradient */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${study.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-
               <div className="relative z-10">
                 {/* Metric */}
                 <div className="mb-6 p-4 rounded-xl bg-primary/10 border border-primary/20">
@@ -159,24 +160,36 @@ export function CaseStudies() {
 
                 {/* Company info */}
                 <div className="mb-4">
-                  <h3 className="text-lg font-bold text-foreground">{study.company}</h3>
+                  <h3 className="text-lg font-bold text-foreground">
+                    {study.company}
+                  </h3>
                   <p className="text-sm text-foreground/60">{study.industry}</p>
                 </div>
 
                 {/* Challenge & Result */}
                 <div className="space-y-3 mb-6">
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-foreground/50 font-semibold mb-1">Challenge</p>
-                    <p className="text-sm text-foreground/70">{study.challenge}</p>
+                    <p className="text-xs uppercase tracking-wide text-foreground/50 font-semibold mb-1">
+                      Challenge
+                    </p>
+                    <p className="text-sm text-foreground/70">
+                      {study.challenge}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-1">Result</p>
-                    <p className="text-sm text-foreground font-medium">{study.result}</p>
+                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-1">
+                      Result
+                    </p>
+                    <p className="text-sm text-foreground font-medium">
+                      {study.result}
+                    </p>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-foreground/70 mb-6 leading-relaxed">{study.description}</p>
+                <p className="text-sm text-foreground/70 mb-6 leading-relaxed">
+                  {study.description}
+                </p>
 
                 {/* Read More */}
                 <button className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
@@ -196,5 +209,5 @@ export function CaseStudies() {
         </div> */}
       </div>
     </section>
-  )
+  );
 }

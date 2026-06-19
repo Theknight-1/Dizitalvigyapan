@@ -10,16 +10,18 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Dizital Vigyapan | Digital Marketing Solutions',
-  description: 'Premium digital marketing agency specializing in SEO, SEM, content marketing, and brand building. We grow brands digitally with data-driven strategies.',
-  generator: 'v0.app',
-  keywords: 'Digital Marketing, SEO, SEM, Content Marketing, Brand Building, Digital Agency',
-  authors: [{ name: 'Dizital Vigyapan' }],
+  title: "Dizital Vigyapan | Digital Marketing Solutions",
+  description:
+    "Premium digital marketing agency specializing in SEO, SEM, content marketing, and brand building. We grow brands digitally with data-driven strategies.",
+  generator: "v0.app",
+  keywords:
+    "Digital Marketing, SEO, SEM, Content Marketing, Brand Building, Digital Agency",
+  authors: [{ name: "Dizital Vigyapan" }],
   icons: {
-    icon: '/icon.svg',
-    apple: '/apple-icon.png',
+    icon: "/apple-touch-icon.png",
+    apple: "/apple-icon.png",
   },
-}
+};
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
