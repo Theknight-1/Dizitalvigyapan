@@ -41,19 +41,78 @@ export function Footer() {
                 href="https://www.facebook.com/Dizitalvigyapan"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <span className="text-lg">f</span>
+                <span className="text-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <path d="M14 8h-2a2 2 0 0 0-2 2v2H8v3h2v5h3v-5h2.5l.5-3H13v-1.5c0-.5.5-.5 1-.5h2V8z" />
+                  </svg>
+                </span>
               </a>
               <a
                 href="https://www.instagram.com/dizitalvigyapan?igsh=MTdqODl1Z3pqZXM2cA%3D%3D"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <span className="text-lg">i</span>
+                <span className="text-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+
+                    <circle cx="12" cy="12" r="4" />
+
+                    <circle cx="17.5" cy="6.5" r="1" />
+                  </svg>
+                </span>
               </a>
               <a
                 href="https://www.linkedin.com/company/84350027/admin/dashboard/"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <span className="text-lg">in</span>
+                <span className="text-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+
+                    <circle
+                      cx="8"
+                      cy="8"
+                      r="0.8"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                    <path d="M8 11v5" />
+
+                    <path d="M12 16v-5" />
+                    <path d="M12 13c0-1.1.9-2 2-2s2 .9 2 2v3" />
+                  </svg>
+                </span>
               </a>
             </div>
           </div>

@@ -10,10 +10,14 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const navLinks = [
@@ -26,25 +30,34 @@ export function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"}`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-4 left-0 right-0 z-50 px-4">
+      <div
+        className={`max-w-7xl mx-auto rounded-2xl transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-xl border border-border shadow-lg"
+            : "bg-background/50 backdrop-blur-md border border-transparent"
+        }`}
+      >
+        <div className="flex items-center justify-between h-16 px-5 lg:px-8">
           {/* Logo */}
-          <div
-            className="flex items-center gap-2 cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <button
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="flex items-center cursor-pointer"
           >
-            <div className="hidden sm:flex flex-col">
-              <Image
-                src="/logo.png"
-                alt="Dizital Vigyapan"
-                width={100}
-                height={30}
-              />
-            </div>
-          </div>
+            <Image
+              src="/logo.png"
+              alt="Dizital Vigyapan"
+              width={150}
+              height={40}
+              priority
+              className="h-10 w-auto"
+            />
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -52,83 +65,89 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium"
+                className="group relative text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
               >
                 {link.label}
+
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:+918899316670"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-sm font-medium hover:bg-muted transition-all"
             >
               <Phone size={16} />
               Call Us
             </a>
+
             <a
               href="https://wa.me/918899316670"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-1 rounded-lg bg-[#25D366] text-primary-foreground hover:bg-[#128C7E] transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-[#25D366] text-white text-sm font-medium shadow-lg shadow-green-500/20 hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-                className="w-8 h-8"
-              >
-                <circle cx="16" cy="16" r="16" fill="#25D366" />
-                <path
-                  fill="#FFF"
-                  d="M24.3 8.3A10.9 10.9 0 0 0 6.5 21.4L5 27l5.8-1.5A10.9 10.9 0 1 0 24.3 8.3zm-8.3 16a9.1 9.1 0 0 1-4.7-1.3l-.3-.2-3.4.9.9-3.3-.2-.3A9.1 9.1 0 1 1 16 24.3zm5-6.8c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.5.1-.2.3-.7.9-.9 1.1-.1.1-.3.2-.5.1-1.5-.8-2.4-1.4-3.4-3.2-.1-.2 0-.3.1-.4.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2.1-.3 0-.5-.1-.1-.5-1.3-.8-1.8-.3-.5-.5-.4-.7-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"
-                />
-              </svg>
+              <MessageCircle size={18} />
               WhatsApp
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-border">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block px-4 py-2 text-foreground/80 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors text-sm font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-2 space-y-2 border-t border-border">
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isOpen
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="border-t border-border px-5 py-5">
+            <div className="space-y-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block rounded-lg px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-5 pt-5 border-t border-border space-y-3">
               <a
                 href="tel:+918899316670"
-                className="block px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium hover:bg-primary/20 transition-colors"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-border font-medium hover:bg-muted transition-all"
               >
-                📞 Call: +91 88993 16670
+                <Phone size={18} />
+                Call Now
               </a>
+
               <a
                 href="https://wa.me/918899316670"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white font-medium shadow-lg shadow-green-500/20"
               >
-                💬 WhatsApp Now
+                <MessageCircle size={18} />
+                WhatsApp
               </a>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

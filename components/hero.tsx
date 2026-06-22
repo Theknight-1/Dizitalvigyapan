@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { ArrowRight, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   const containerRef = useRef(null);
@@ -11,47 +12,45 @@ export function Hero() {
   const ctaRef = useRef(null);
 
   useEffect(() => {
-  const ctx = gsap.context(() => {
-    const tl = gsap.timeline()
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
 
-    tl.from(titleRef.current, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-    })
-      .from(
-        subtitleRef.current,
-        {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-        },
-        '-=0.5'
-      )
-      .from(
-        ctaRef.current,
-        {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-        },
-        '-=0.5'
-      )
+      tl.from(titleRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+      })
+        .from(
+          subtitleRef.current,
+          {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+          },
+          "-=0.5",
+        )
+        .from(
+          ctaRef.current,
+          {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+          },
+          "-=0.5",
+        );
 
-    gsap.to('.floating-card', {
-      y: '-=15',
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      stagger: 0.2,
-    })
-  }, containerRef)
+      gsap.to(".floating-card", {
+        y: "-=15",
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: 0.2,
+      });
+    }, containerRef);
 
-  return () => ctx.revert()
-}, [])
-
-  
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
@@ -87,17 +86,20 @@ export function Hero() {
               deliver measurable results that grow your revenue.
             </p>
 
-            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="px-8 py-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-semibold flex items-center gap-2 group">
-                Start Your Free Audit
-                <ArrowRight
-                  size={20}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </button>
-              <button className="px-8 py-4 rounded-lg border-2 border-primary/30 text-foreground hover:border-primary hover:bg-primary/5 transition-all font-semibold">
-                Book a Demo
-              </button>
+            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf0rFtMcXdHWcM0dnGF3n2ebOU1brUQu5VB1Wd23tCevKFlYw/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="px-8 py-4 cursor-pointer rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-semibold flex items-center gap-2 group">
+                  Book a Free Consultation
+                  <ArrowRight
+                    size={20}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </button>
+              </Link>
             </div>
 
             {/* Trust badges */}
@@ -122,7 +124,6 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right side - Founder image */}
           {/* Right side - Marketing Dashboard */}
           <div className="relative h-120 flex items-center justify-center">
             {/* Background glow */}
@@ -180,10 +181,7 @@ export function Hero() {
               <div className="text-primary text-sm">Generated</div>
             </div>
           </div>
-          
         </div>
-
-      
       </div>
     </section>
   );
